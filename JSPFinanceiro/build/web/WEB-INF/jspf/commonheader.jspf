@@ -1,0 +1,9 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<header style="background-color: #a60512; color: #ffffff; text-align: center; font-size: 32px;">
+    
+    <span> Guilherme Soares Brando </span><br>
+    <a href="<%= request.getContextPath()%>/index.jsp"><span style="font-size: 24px;">Index</span></a><br>
+    <a href="<%= request.getContextPath()%>/juros-simples.jsp"><span style="font-size: 24px;">Juros Simples</span></a><br>
+    <a href="<%= request.getContextPath()%>/juros-compostos.jsp"><span style="font-size: 24px;">Juros Compostos</span></a><br>
+</header>
