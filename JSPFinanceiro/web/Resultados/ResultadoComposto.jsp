@@ -7,13 +7,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.lang.Math"%>
 <!DOCTYPE html>
 <%
-  
-double val = Double.parseDouble(request.getParameter("C"));
-double taxa = Double.parseDouble(request.getParameter("I"));
-double temp = Double.parseDouble(request.getParameter("T"));
-double taxa2 = 1 + taxa;
 
-double result = val * Math.pow(taxa2, temp);
+double val = 0;
+double taxa = 0;
+double temp = 0;
+double taxa2 = 0;
+double result = 0;
+String erro = null;
+
+try
+{
+val = Double.parseDouble(request.getParameter("C"));
+taxa = Double.parseDouble(request.getParameter("I"));
+temp = Double.parseDouble(request.getParameter("T"));
+taxa2 = 1 + taxa;
+
+result = val * Math.pow(taxa2, temp);
+}
+catch(Exception e)
+{
+erro = "Erro no preenchimento do formulário";   
+}
 
 %>
 <html>
@@ -24,6 +38,15 @@ double result = val * Math.pow(taxa2, temp);
     <body>
         <%@include file="../WEB-INF/jspf/commonheader.jspf"  %>
         <h1>Resultado:</h1>
-        <h2><% out.println(result);%></h2>
+        <h2><%
+            if(erro != null)
+            {
+                out.println(erro);
+            }
+            else
+            {
+                out.println(result);
+            }
+        %></h2>
     </body>
 </html>
