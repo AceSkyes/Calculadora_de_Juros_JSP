@@ -1,2 +1,10 @@
 # Calculadora_de_Juros_JSP
-02/04/2024
+
+Atividade para a matéria de POO em ADS
+
+Calculadora capaz de fazer as seguintes operações:
+
+Montante de Juros Simples;
+Montante de Juros Compostos;
+
+
