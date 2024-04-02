@@ -8,14 +8,26 @@
 <!DOCTYPE html>
 
 <%
-  
-double val = Double.parseDouble(request.getParameter("C"));
-double taxa = Double.parseDouble(request.getParameter("I"));
-double temp = Double.parseDouble(request.getParameter("T"));
+ 
+double val = 0;
+double taxa = 0;
+double temp = 0;
+double result = 0;
+String erro = null;
 
-double result = val * taxa * temp;
+try
+{
+val = Double.parseDouble(request.getParameter("C"));
+taxa = Double.parseDouble(request.getParameter("I"));
+temp = Double.parseDouble(request.getParameter("T"));
+
+result = val * taxa * temp;
 result += val;
-
+}
+catch(Exception e)
+{
+erro = "Erro no preenchimento do formulário"; 
+}
 %>
 
 <html>
@@ -26,6 +38,15 @@ result += val;
     <body>
         <%@include file="../WEB-INF/jspf/commonheader.jspf"  %>
         <h1>Resultado:</h1>
-        <h2><% out.println(result);%></h2>
+        <h2><%
+            if(erro != null)
+            {
+                out.println(erro);
+            }
+            else
+            {
+                out.println(result);
+            }
+        %></h2>
     </body>
 </html>
